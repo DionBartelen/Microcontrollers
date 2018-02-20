@@ -1,0 +1,470 @@
+
+OpdrachtB7A.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000248  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001f4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000248  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000278  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000058  00000000  00000000  000002b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000ab6  00000000  00000000  0000030c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000008c6  00000000  00000000  00000dc2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004a2  00000000  00000000  00001688  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000094  00000000  00000000  00001b2c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000465  00000000  00000000  00001bc0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000001b4  00000000  00000000  00002025  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  000021d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	4b c0       	rjmp	.+150    	; 0x9c <__bad_interrupt>
+   6:	00 00       	nop
+   8:	49 c0       	rjmp	.+146    	; 0x9c <__bad_interrupt>
+   a:	00 00       	nop
+   c:	47 c0       	rjmp	.+142    	; 0x9c <__bad_interrupt>
+   e:	00 00       	nop
+  10:	45 c0       	rjmp	.+138    	; 0x9c <__bad_interrupt>
+  12:	00 00       	nop
+  14:	43 c0       	rjmp	.+134    	; 0x9c <__bad_interrupt>
+  16:	00 00       	nop
+  18:	41 c0       	rjmp	.+130    	; 0x9c <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	3f c0       	rjmp	.+126    	; 0x9c <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	3d c0       	rjmp	.+122    	; 0x9c <__bad_interrupt>
+  22:	00 00       	nop
+  24:	3b c0       	rjmp	.+118    	; 0x9c <__bad_interrupt>
+  26:	00 00       	nop
+  28:	39 c0       	rjmp	.+114    	; 0x9c <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	37 c0       	rjmp	.+110    	; 0x9c <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	35 c0       	rjmp	.+106    	; 0x9c <__bad_interrupt>
+  32:	00 00       	nop
+  34:	33 c0       	rjmp	.+102    	; 0x9c <__bad_interrupt>
+  36:	00 00       	nop
+  38:	31 c0       	rjmp	.+98     	; 0x9c <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	2f c0       	rjmp	.+94     	; 0x9c <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	2d c0       	rjmp	.+90     	; 0x9c <__bad_interrupt>
+  42:	00 00       	nop
+  44:	2b c0       	rjmp	.+86     	; 0x9c <__bad_interrupt>
+  46:	00 00       	nop
+  48:	29 c0       	rjmp	.+82     	; 0x9c <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	27 c0       	rjmp	.+78     	; 0x9c <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	25 c0       	rjmp	.+74     	; 0x9c <__bad_interrupt>
+  52:	00 00       	nop
+  54:	23 c0       	rjmp	.+70     	; 0x9c <__bad_interrupt>
+  56:	00 00       	nop
+  58:	21 c0       	rjmp	.+66     	; 0x9c <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	1f c0       	rjmp	.+62     	; 0x9c <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	1d c0       	rjmp	.+58     	; 0x9c <__bad_interrupt>
+  62:	00 00       	nop
+  64:	1b c0       	rjmp	.+54     	; 0x9c <__bad_interrupt>
+  66:	00 00       	nop
+  68:	19 c0       	rjmp	.+50     	; 0x9c <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	17 c0       	rjmp	.+46     	; 0x9c <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	15 c0       	rjmp	.+42     	; 0x9c <__bad_interrupt>
+  72:	00 00       	nop
+  74:	13 c0       	rjmp	.+38     	; 0x9c <__bad_interrupt>
+  76:	00 00       	nop
+  78:	11 c0       	rjmp	.+34     	; 0x9c <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	0f c0       	rjmp	.+30     	; 0x9c <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	0d c0       	rjmp	.+26     	; 0x9c <__bad_interrupt>
+  82:	00 00       	nop
+  84:	0b c0       	rjmp	.+22     	; 0x9c <__bad_interrupt>
+  86:	00 00       	nop
+  88:	09 c0       	rjmp	.+18     	; 0x9c <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+  98:	9e d0       	rcall	.+316    	; 0x1d6 <main>
+  9a:	aa c0       	rjmp	.+340    	; 0x1f0 <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	b1 cf       	rjmp	.-158    	; 0x0 <__vectors>
+
+0000009e <checkBtn>:
+	}
+	return s3;
+}
+
+int checkBtn() {
+	if(PINC & (1 << PC0)) {
+  9e:	98 9b       	sbis	0x13, 0	; 19
+  a0:	05 c0       	rjmp	.+10     	; 0xac <checkBtn+0xe>
+		PORTE = 0b00000001;
+  a2:	81 e0       	ldi	r24, 0x01	; 1
+  a4:	83 b9       	out	0x03, r24	; 3
+		return 0;
+  a6:	80 e0       	ldi	r24, 0x00	; 0
+  a8:	90 e0       	ldi	r25, 0x00	; 0
+  aa:	08 95       	ret
+	} else if(PINC & (2 << PC0)) {
+  ac:	99 9b       	sbis	0x13, 1	; 19
+  ae:	05 c0       	rjmp	.+10     	; 0xba <checkBtn+0x1c>
+		PORTE = 0b00000010;
+  b0:	82 e0       	ldi	r24, 0x02	; 2
+  b2:	83 b9       	out	0x03, r24	; 3
+		return 1;
+  b4:	81 e0       	ldi	r24, 0x01	; 1
+  b6:	90 e0       	ldi	r25, 0x00	; 0
+  b8:	08 95       	ret
+	} else if(PINC & (4 << PC0)) {
+  ba:	9a 9b       	sbis	0x13, 2	; 19
+  bc:	05 c0       	rjmp	.+10     	; 0xc8 <checkBtn+0x2a>
+		PORTE = 0b00000100;
+  be:	84 e0       	ldi	r24, 0x04	; 4
+  c0:	83 b9       	out	0x03, r24	; 3
+		return 2;
+  c2:	82 e0       	ldi	r24, 0x02	; 2
+  c4:	90 e0       	ldi	r25, 0x00	; 0
+  c6:	08 95       	ret
+	} else if(PINC & (8 << PC0)) {
+  c8:	9b 9b       	sbis	0x13, 3	; 19
+  ca:	05 c0       	rjmp	.+10     	; 0xd6 <checkBtn+0x38>
+		PORTE = 0b00001000;
+  cc:	88 e0       	ldi	r24, 0x08	; 8
+  ce:	83 b9       	out	0x03, r24	; 3
+		return 3;
+  d0:	83 e0       	ldi	r24, 0x03	; 3
+  d2:	90 e0       	ldi	r25, 0x00	; 0
+  d4:	08 95       	ret
+	} else if(PINC & (16 << PC0)) {
+  d6:	9c 9b       	sbis	0x13, 4	; 19
+  d8:	05 c0       	rjmp	.+10     	; 0xe4 <checkBtn+0x46>
+		PORTE = 0b00010000;
+  da:	80 e1       	ldi	r24, 0x10	; 16
+  dc:	83 b9       	out	0x03, r24	; 3
+		return 4;
+  de:	84 e0       	ldi	r24, 0x04	; 4
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	08 95       	ret
+	} else if(PINC & (32 << PC0)) {
+  e4:	9d 9b       	sbis	0x13, 5	; 19
+  e6:	05 c0       	rjmp	.+10     	; 0xf2 <checkBtn+0x54>
+		PORTE = 0b00100000;
+  e8:	80 e2       	ldi	r24, 0x20	; 32
+  ea:	83 b9       	out	0x03, r24	; 3
+		return 5;
+  ec:	85 e0       	ldi	r24, 0x05	; 5
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	08 95       	ret
+	} else if(PINC & (64 << PC0)) {
+  f2:	9e 9b       	sbis	0x13, 6	; 19
+  f4:	05 c0       	rjmp	.+10     	; 0x100 <checkBtn+0x62>
+		PORTE = 0b01000000;
+  f6:	80 e4       	ldi	r24, 0x40	; 64
+  f8:	83 b9       	out	0x03, r24	; 3
+		return 6;
+  fa:	86 e0       	ldi	r24, 0x06	; 6
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+  fe:	08 95       	ret
+	} else if(PINC & (128 << PC0)) {
+ 100:	9f 9b       	sbis	0x13, 7	; 19
+ 102:	05 c0       	rjmp	.+10     	; 0x10e <checkBtn+0x70>
+		PORTE = 0b10000000;
+ 104:	80 e8       	ldi	r24, 0x80	; 128
+ 106:	83 b9       	out	0x03, r24	; 3
+		return 7;
+ 108:	87 e0       	ldi	r24, 0x07	; 7
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	08 95       	ret
+	}
+	return -1;
+ 10e:	8f ef       	ldi	r24, 0xFF	; 255
+ 110:	9f ef       	ldi	r25, 0xFF	; 255
+}
+ 112:	08 95       	ret
+
+00000114 <start>:
+    }
+}
+
+
+void *start() {
+	PORTD = 0b00000001;
+ 114:	81 e0       	ldi	r24, 0x01	; 1
+ 116:	82 bb       	out	0x12, r24	; 18
+	int pressedBtn = checkBtn();
+ 118:	c2 df       	rcall	.-124    	; 0x9e <checkBtn>
+	if(pressedBtn == 5) {
+ 11a:	85 30       	cpi	r24, 0x05	; 5
+ 11c:	91 05       	cpc	r25, r1
+ 11e:	29 f0       	breq	.+10     	; 0x12a <start+0x16>
+		return s2;
+	} else if(pressedBtn == 6) {
+ 120:	06 97       	sbiw	r24, 0x06	; 6
+ 122:	31 f0       	breq	.+12     	; 0x130 <start+0x1c>
+		return s1;
+	}
+	return start;
+ 124:	8a e8       	ldi	r24, 0x8A	; 138
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	08 95       	ret
+
+void *start() {
+	PORTD = 0b00000001;
+	int pressedBtn = checkBtn();
+	if(pressedBtn == 5) {
+		return s2;
+ 12a:	87 eb       	ldi	r24, 0xB7	; 183
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	08 95       	ret
+	} else if(pressedBtn == 6) {
+		return s1;
+ 130:	86 ea       	ldi	r24, 0xA6	; 166
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return start;
+}
+ 134:	08 95       	ret
+
+00000136 <end>:
+
+void *end() {
+	PORTD = 0b10000001;
+ 136:	81 e8       	ldi	r24, 0x81	; 129
+ 138:	82 bb       	out	0x12, r24	; 18
+	int pressedBtn = checkBtn();
+ 13a:	b1 df       	rcall	.-158    	; 0x9e <checkBtn>
+	if(pressedBtn == 7) {
+ 13c:	07 97       	sbiw	r24, 0x07	; 7
+ 13e:	19 f0       	breq	.+6      	; 0x146 <end+0x10>
+		return start;
+	}
+	return end;
+ 140:	8b e9       	ldi	r24, 0x9B	; 155
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	08 95       	ret
+
+void *end() {
+	PORTD = 0b10000001;
+	int pressedBtn = checkBtn();
+	if(pressedBtn == 7) {
+		return start;
+ 146:	8a e8       	ldi	r24, 0x8A	; 138
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return end;
+}
+ 14a:	08 95       	ret
+
+0000014c <s1>:
+
+void *s1() {
+	PORTD = 0b00000101;
+ 14c:	85 e0       	ldi	r24, 0x05	; 5
+ 14e:	82 bb       	out	0x12, r24	; 18
+	int pressedBtn = checkBtn();
+ 150:	a6 df       	rcall	.-180    	; 0x9e <checkBtn>
+	if(pressedBtn == 7) {
+ 152:	87 30       	cpi	r24, 0x07	; 7
+ 154:	91 05       	cpc	r25, r1
+ 156:	29 f0       	breq	.+10     	; 0x162 <s1+0x16>
+		return start;
+	} else if(pressedBtn == 5) {
+ 158:	05 97       	sbiw	r24, 0x05	; 5
+ 15a:	31 f0       	breq	.+12     	; 0x168 <s1+0x1c>
+		return s2;
+	}
+	return s1;
+ 15c:	86 ea       	ldi	r24, 0xA6	; 166
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	08 95       	ret
+
+void *s1() {
+	PORTD = 0b00000101;
+	int pressedBtn = checkBtn();
+	if(pressedBtn == 7) {
+		return start;
+ 162:	8a e8       	ldi	r24, 0x8A	; 138
+ 164:	90 e0       	ldi	r25, 0x00	; 0
+ 166:	08 95       	ret
+	} else if(pressedBtn == 5) {
+		return s2;
+ 168:	87 eb       	ldi	r24, 0xB7	; 183
+ 16a:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return s1;
+}
+ 16c:	08 95       	ret
+
+0000016e <s2>:
+
+void *s2() {
+	PORTD = 0b00010101;
+ 16e:	85 e1       	ldi	r24, 0x15	; 21
+ 170:	82 bb       	out	0x12, r24	; 18
+	int pressedBtn = checkBtn();
+ 172:	95 df       	rcall	.-214    	; 0x9e <checkBtn>
+	if(pressedBtn == 5) {
+ 174:	85 30       	cpi	r24, 0x05	; 5
+ 176:	91 05       	cpc	r25, r1
+ 178:	29 f0       	breq	.+10     	; 0x184 <s2+0x16>
+		return s3;
+	} else if(pressedBtn == 6) {
+ 17a:	06 97       	sbiw	r24, 0x06	; 6
+ 17c:	31 f0       	breq	.+12     	; 0x18a <s2+0x1c>
+		return s1;
+	}
+	return s2;
+ 17e:	87 eb       	ldi	r24, 0xB7	; 183
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	08 95       	ret
+
+void *s2() {
+	PORTD = 0b00010101;
+	int pressedBtn = checkBtn();
+	if(pressedBtn == 5) {
+		return s3;
+ 184:	88 ec       	ldi	r24, 0xC8	; 200
+ 186:	90 e0       	ldi	r25, 0x00	; 0
+ 188:	08 95       	ret
+	} else if(pressedBtn == 6) {
+		return s1;
+ 18a:	86 ea       	ldi	r24, 0xA6	; 166
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return s2;
+}
+ 18e:	08 95       	ret
+
+00000190 <s3>:
+
+void *s3() {
+	PORTD = 0b01010101;
+ 190:	85 e5       	ldi	r24, 0x55	; 85
+ 192:	82 bb       	out	0x12, r24	; 18
+	int pressedBtn = checkBtn();
+ 194:	84 df       	rcall	.-248    	; 0x9e <checkBtn>
+	if(pressedBtn == 7) {
+ 196:	87 30       	cpi	r24, 0x07	; 7
+ 198:	91 05       	cpc	r25, r1
+ 19a:	31 f0       	breq	.+12     	; 0x1a8 <s3+0x18>
+		return start;
+	} else if(pressedBtn == 5 || pressedBtn == 6) {
+ 19c:	05 97       	sbiw	r24, 0x05	; 5
+ 19e:	02 97       	sbiw	r24, 0x02	; 2
+ 1a0:	30 f0       	brcs	.+12     	; 0x1ae <s3+0x1e>
+		return end;
+	}
+	return s3;
+ 1a2:	88 ec       	ldi	r24, 0xC8	; 200
+ 1a4:	90 e0       	ldi	r25, 0x00	; 0
+ 1a6:	08 95       	ret
+
+void *s3() {
+	PORTD = 0b01010101;
+	int pressedBtn = checkBtn();
+	if(pressedBtn == 7) {
+		return start;
+ 1a8:	8a e8       	ldi	r24, 0x8A	; 138
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	08 95       	ret
+	} else if(pressedBtn == 5 || pressedBtn == 6) {
+		return end;
+ 1ae:	8b e9       	ldi	r24, 0x9B	; 155
+ 1b0:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return s3;
+}
+ 1b2:	08 95       	ret
+
+000001b4 <wait>:
+	}
+	return -1;
+}
+
+void wait(int ms) {
+	for(int i = 0; i < ms; i++) {
+ 1b4:	18 16       	cp	r1, r24
+ 1b6:	19 06       	cpc	r1, r25
+ 1b8:	6c f4       	brge	.+26     	; 0x1d4 <wait+0x20>
+ 1ba:	20 e0       	ldi	r18, 0x00	; 0
+ 1bc:	30 e0       	ldi	r19, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1be:	ef ec       	ldi	r30, 0xCF	; 207
+ 1c0:	f7 e0       	ldi	r31, 0x07	; 7
+ 1c2:	31 97       	sbiw	r30, 0x01	; 1
+ 1c4:	f1 f7       	brne	.-4      	; 0x1c2 <wait+0xe>
+ 1c6:	00 c0       	rjmp	.+0      	; 0x1c8 <wait+0x14>
+ 1c8:	00 00       	nop
+ 1ca:	2f 5f       	subi	r18, 0xFF	; 255
+ 1cc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1ce:	82 17       	cp	r24, r18
+ 1d0:	93 07       	cpc	r25, r19
+ 1d2:	a9 f7       	brne	.-22     	; 0x1be <wait+0xa>
+ 1d4:	08 95       	ret
+
+000001d6 <main>:
+void *s3();
+
+
+int main(void)
+{
+	DDRD = 0xFF;
+ 1d6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1d8:	81 bb       	out	0x11, r24	; 17
+	DDRB = 0x00;
+ 1da:	17 ba       	out	0x17, r1	; 23
+	DDRE = 0xFF;
+ 1dc:	82 b9       	out	0x02, r24	; 2
+	StateFunc statefunc = start;
+ 1de:	ca e8       	ldi	r28, 0x8A	; 138
+ 1e0:	d0 e0       	ldi	r29, 0x00	; 0
+	
+    /* Replace with your application code */
+    while (1) 
+    {
+		statefunc = (StateFunc)(*statefunc)();
+ 1e2:	fe 01       	movw	r30, r28
+ 1e4:	09 95       	icall
+ 1e6:	ec 01       	movw	r28, r24
+		wait(250);
+ 1e8:	8a ef       	ldi	r24, 0xFA	; 250
+ 1ea:	90 e0       	ldi	r25, 0x00	; 0
+ 1ec:	e3 df       	rcall	.-58     	; 0x1b4 <wait>
+ 1ee:	f9 cf       	rjmp	.-14     	; 0x1e2 <main+0xc>
+
+000001f0 <_exit>:
+ 1f0:	f8 94       	cli
+
+000001f2 <__stop_program>:
+ 1f2:	ff cf       	rjmp	.-2      	; 0x1f2 <__stop_program>
