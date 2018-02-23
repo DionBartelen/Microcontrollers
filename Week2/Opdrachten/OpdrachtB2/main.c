@@ -25,6 +25,7 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
+		//commentaar
 		wait(10);
     }
 }
@@ -36,7 +37,6 @@ ISR( INT0_vect )
 	}else {
 	PORTE = (PORTE << 1) % 0xFF;
 	}
-	//PORTE = 0b00000001;
 }
 
 ISR( INT1_vect )
@@ -46,7 +46,6 @@ ISR( INT1_vect )
 		}else {
 		PORTE = (PORTE >> 1) % 0xFF;
 	}
-	//PORTE = 0b10000000;
 }
 
 
