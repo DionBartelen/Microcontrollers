@@ -7,9 +7,11 @@
 #define F_CPU 8000000
 #include <avr/io.h>
 #include <avr/delay.h>
+#include <avr/interrupt.h>
 #include "LCD.h"
 
 static char text[] = "Aantal keer gedrukt: ";
+int aantalKeer = 0;
 
 int main(void)
 {
@@ -17,20 +19,27 @@ int main(void)
 	DDRC = 0xFF;
 	DDRD = 0x00;
 	
-	TCNT2 = 0;
-	TIMSK = |= 1 << 6;
-	TCCR2 = 0b0010111;
+	TCNT2 = -1;
+	TIMSK |= (1 << 6);
+	SREG |= (1 << 7);
+	TCCR2 = 0b0000111;  //TCCR2 = 0b0010111;
+	sei();
 	
 	PORTC = 0x00;
 	
-	init();
-	clr_display();
-    /* Replace with your application code */
-    while (1) 
-    {
-		PORTB = TCNT2;
-		wait(10);
-    }
+		init();
+		clr_display();
+		int length = strlen(text) + 1;
+		while (1)
+		{
+			for(int x = 0; x< length; x++) {
+				PORTB = TCNT2;
+				set_display(1);
+				wait(250);
+			}
+		}
+		
+		return 0;
 }
 
 void wait(int ms) {
@@ -40,11 +49,17 @@ void wait(int ms) {
 }
 
 ISR ( TIMER2_OVF_vect ) {
-	display_text('a');
+	aantalKeer++;
+	displayUpdate();
+	TCNT2 = -1;
 }
 
-ISR ( TIMER2_OVF_vect_num ) {
-	display_text('a');
+void displayUpdate() {
+		clr_display();
+		display_text(text);
+		lcd_writeChar(aantalKeer+'0');
 }
+
+
 
 
