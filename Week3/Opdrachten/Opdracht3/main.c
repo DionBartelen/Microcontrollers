@@ -18,13 +18,12 @@ int main(void)
 	DDRC = 0xFF;
 	DDRD = 0xFF;
 		
-	TCNT2 = 5;
-	TIMSK |= (1 << 6);
+	TCNT2 = 0;
+	OCR2 = 125;
+	TIMSK |= (1 << 7);
 	SREG |= (1 << 7);
-	TCCR2 = 0b00001011;  // met een prescaler van 32 en een startwaarde van 5 is er precies een overflow bij 1 milliseconden
+	TCCR2 = 0b00001011; 
 	sei();
-		
-	PORTC = 0x00;
 
     while (1) 
     {
@@ -33,12 +32,13 @@ int main(void)
 }
 
 
-ISR ( TIMER2_OVF_vect ) {
-	TCNT2 = 5;
-	overflowCount = (overflowCount + 1) % 40;
+ISR( TIMER2_COMP_vect )
+{
+	overflowCount++;
+	overflowCount = overflowCount % 40;
 	if(overflowCount == 0) {
 		PORTD = 0b10000000;
-	} else if(overflowCount == 15) {
+		} else if(overflowCount == 15) {
 		PORTD = 0b00000000;
 	}
 }
