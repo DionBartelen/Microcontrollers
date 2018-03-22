@@ -32,6 +32,7 @@ void wait(int);
 
 int main(void)
 {
+	DDRB = 0xFF;
 	DDRC = 0xFF;
 	DDRD = 0x00;
 	DDRF = 0x00;
@@ -63,7 +64,7 @@ int main(void)
 				updateDisplayBlocked();
 			}
 		}
-		wait(250);
+		wait(100);
     }
 }
 
@@ -83,6 +84,7 @@ void checkBPLocked() {
 				state = UNLOCKED;
 				currentNumber = 0;
 				amountBlocked = 0;
+				UnLock();
 			}
 		} else {
 			amountGuesses--;
@@ -106,6 +108,7 @@ void checkBPUnlocked() {
 		currentNumber = 0;
 		amountGuesses = 3;
 		displayDirtyFlag = 1;
+		Lock();
 	}
 }
 

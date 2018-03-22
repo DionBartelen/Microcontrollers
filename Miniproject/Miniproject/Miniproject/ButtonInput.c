@@ -18,7 +18,7 @@ void ButtonInputInit() {
 
 int ButtonInputGetButtonPressed() {
 	if(buttonPressed) {
-		wait(500);
+		wait(100);
 		buttonPressed = 0;
 		return 1;
 	}
