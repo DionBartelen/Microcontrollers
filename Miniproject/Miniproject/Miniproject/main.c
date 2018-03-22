@@ -5,9 +5,6 @@
  * Author : dionb
  */ 
 #define F_CPU 8000000
-#define LOCKED 0
-#define UNLOCKED 1
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,17 +15,18 @@
 #include "LCD.h"
 #include "ADC.h"
 #include "ButtonInput.h"
+#include "Timer.h"
+#include "main.h"
 
-char amountNumberInputText[] = "Code: %s";
-char numberLockText[] = "Value %03d   #%d";
 int displayDirtyFlag = 1;
-
 int state = 0;
 int currentNumber = 0;
-int amountGuesses = 3;
+int amountGuesses = MAX_AMOUNT_GUESSES;
+int amountBlocked = 0;
 int prevADCvalue = 0;
 int lengthCode = 4;
 int code[] = {0, 0, 0, 0};
+int blockedTime = WAITING_TIME;
 	
 void wait(int);
 
@@ -43,6 +41,8 @@ int main(void)
 	LCDinit();
 	wait(100);
 	ButtonInputInit();
+	wait(100);
+	TimerInit();
 	sei();
     /* Replace with your application code */
     while (1) 
@@ -57,6 +57,10 @@ int main(void)
 			checkBPUnlocked();
 			if(displayDirtyFlag) {
 				updateDisplayUnlocked();
+			}
+		} else if(state == BLOCKED) {
+			if(displayDirtyFlag) {
+				updateDisplayBlocked();
 			}
 		}
 		wait(250);
@@ -78,9 +82,19 @@ void checkBPLocked() {
 			if(currentNumber >= lengthCode) {
 				state = UNLOCKED;
 				currentNumber = 0;
+				amountBlocked = 0;
 			}
 		} else {
 			amountGuesses--;
+			currentNumber = 0;
+			if(amountGuesses < 0) {
+				state = BLOCKED;
+				blockedTime = WAITING_TIME;
+				for(int x = 0; x < amountBlocked; x++) {
+					blockedTime *= 2;
+				}
+				amountBlocked++;
+			}
 		}
 		displayDirtyFlag = 1;
 	}
@@ -91,12 +105,15 @@ void checkBPUnlocked() {
 		state = LOCKED;
 		currentNumber = 0;
 		amountGuesses = 3;
+		displayDirtyFlag = 1;
 	}
 }
 
 void updateDisplayCodeInput() {
 	displayDirtyFlag = 0;
 	LCDclr_display();
+	char amountNumberInputText[] = "Code: %s";
+	char numberLockText[] = "Value %03d   #%d";
 	char newTopText[16];
 	char *codeStr;
 	if(currentNumber == 0) {
@@ -115,7 +132,7 @@ void updateDisplayCodeInput() {
 	char newBotText[16];
 	sprintf(newBotText, numberLockText, prevADCvalue, amountGuesses);
 	LCDdisplay_textBot(newBotText);
-	if(state == UNLOCKED) {
+	if(state == UNLOCKED || state == BLOCKED) {
 		displayDirtyFlag = 1;
 	}
 }
@@ -124,8 +141,32 @@ void updateDisplayUnlocked() {
 	displayDirtyFlag = 0;
 	LCDclr_display();
 	LCDdisplay_textTop("Unlocked");
-	if(state == LOCKED) {
+	if(state == LOCKED || state == BLOCKED) {
 		displayDirtyFlag = 1;
+	}
+}
+
+void updateDisplayBlocked() {
+	displayDirtyFlag = 0;
+	LCDclr_display();
+	LCDdisplay_textTop("BLOCKED");
+	char newSubText[16];
+	sprintf(newSubText, "for: %02d:%02d:%02d", blockedTime / 3600, (blockedTime % 3600) / 60, (blockedTime % 60));
+	 LCDdisplay_textBot(newSubText);
+}
+
+void secondHasPassed() {
+	if(state == BLOCKED) {
+		if(blockedTime == 0) {
+			state = LOCKED;
+			currentNumber = 0;
+			displayDirtyFlag = 1;
+			blockedTime = 10;
+			amountGuesses = 3;
+			} else {
+			blockedTime--;
+			displayDirtyFlag = 1;
+		}
 	}
 }
 

@@ -9,11 +9,12 @@
 #include <avr/delay.h>
 
 void ADCInit(){
-	ADMUX = 0b11100000;
+	ADMUX = 0b01100000;
 	ADCSRA = 0b11100110;
+	
 }
 
 
 int ADCcurrentValue() {
-	return (((float)(ADCH)) / 255.0) * 100.0;
+	return (((float)(ADCH)) / 255.0) * 50.0;
 }

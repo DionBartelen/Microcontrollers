@@ -40,7 +40,8 @@ C_SRCS +=  \
 ../ADC.c \
 ../ButtonInput.c \
 ../LCD.c \
-../main.c
+../main.c \
+../Timer.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,25 +54,29 @@ OBJS +=  \
 ADC.o \
 ButtonInput.o \
 LCD.o \
-main.o
+main.o \
+Timer.o
 
 OBJS_AS_ARGS +=  \
 ADC.o \
 ButtonInput.o \
 LCD.o \
-main.o
+main.o \
+Timer.o
 
 C_DEPS +=  \
 ADC.d \
 ButtonInput.d \
 LCD.d \
-main.d
+main.d \
+Timer.d
 
 C_DEPS_AS_ARGS +=  \
 ADC.d \
 ButtonInput.d \
 LCD.d \
-main.d
+main.d \
+Timer.d
 
 OUTPUT_FILE_PATH +=Miniproject.elf
 
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

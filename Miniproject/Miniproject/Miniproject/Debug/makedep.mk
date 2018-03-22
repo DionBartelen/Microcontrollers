@@ -10,3 +10,5 @@ LCD.c
 
 main.c
 
+Timer.c
+
